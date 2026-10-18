@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /_assets/
-Disallow: /node_modules/
-
-Sitemap: https://example.com/sitemap.xml
