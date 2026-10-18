@@ -1,0 +1,117 @@
+@charset "utf-8";
+@use "mixin" as m;
+@use "color" as c;
+@use "font" as f;
+
+* {
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  @include m.mq(tab) {
+    line-height: 1.65;
+  }
+}
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+html {
+  width: 100%;
+  /* ルートのフォントサイズを10pxに設定 */
+  font-size: 62.5%;
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+  @include m.mq(tab-l) {
+    font-size: 61.5%;
+  }
+  @include m.mq(tab) {
+    font-size: 54.6%;
+  }
+}
+
+body {
+  margin: 0px;
+  overflow-x: clip;
+  /* ルートのフォントサイズを1.6em（16pxと同等のサイズ）に設定 */
+  font-size: 1.6rem;
+  font-family: f.$base;
+  color: c.$text;
+  background-color: c.$bg;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt";
+}
+
+select,
+option,
+button,
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.4s;
+}
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+
+input[type="text"],
+textarea {
+  -webkit-appearance: none;
+  border: none;
+}
+textarea {
+  resize: none;
+}
+button,
+select,
+input,
+a {
+  @include m.mq(tab-l) {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+button,
+select,
+input,
+input[type="submit"] {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+button {
+  cursor: pointer;
+  padding: 0;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  position: relative;
+}
+
+:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid c.$text;
+  outline-offset: 3px;
+}

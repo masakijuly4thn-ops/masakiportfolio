@@ -1,0 +1,20 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/font" as f;
+
+.c-fontEn {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.c-fontMincho {
+  font-family: f.$mincho;
+}
+.c-fontScript {
+  font-family: f.$script;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.c-bold {
+  font-family: "Hiragino Kaku Gothic W6 JIS2004";
+}

@@ -1,0 +1,54 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+
+.c-modal {
+  width: min(1000px, 92vw);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.5s;
+  &[open] {
+    opacity: 1;
+  }
+  &::backdrop {
+    background-color: rgba(#000, 0.82);
+  }
+}
+.c-modal__inner {
+  position: relative;
+}
+.c-modal__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+}
+.c-modal__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: c.$white;
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}

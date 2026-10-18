@@ -1,0 +1,79 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+
+.l-footer {
+  position: relative;
+  background-color: c.$bg;
+}
+
+.l-footer__inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 60px);
+  padding: 44px clamp(20px, 5.8vw, 84px);
+  @include m.mq(tab) {
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px 20px 32px;
+  }
+}
+.l-footer__logo {
+  font-size: 3.8rem;
+  line-height: 1;
+  letter-spacing: 0;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.l-footer__nav {
+  margin-left: clamp(0px, 5vw, 80px);
+  @include m.mq(tab) {
+    margin-left: 0;
+  }
+}
+.l-footer__navList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px clamp(20px, 3vw, 40px);
+  @include m.mq(tab) {
+    justify-content: center;
+  }
+  a {
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
+    &:hover {
+      opacity: 0.55;
+    }
+  }
+}
+.l-footer__sns {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+  @include m.mq(tab) {
+    margin-left: 0;
+  }
+  a {
+    display: block;
+    &:hover {
+      opacity: 0.55;
+    }
+  }
+  svg {
+    display: block;
+    fill: c.$text;
+  }
+}
+.l-footer__copy {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: c.$text-sub;
+  margin-left: clamp(20px, 3vw, 48px);
+  @include m.mq(tab) {
+    margin-left: 0;
+  }
+  small {
+    font-size: inherit;
+  }
+}

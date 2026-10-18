@@ -1,0 +1,36 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+
+// アニメーションの動きは GSAP（JS）で制御し、CSS では「表示前の状態」だけを定義する。
+// html.js は JS 有効時のみ付与されるため、JS 無効環境やクローラーでも本文は必ず表示される。
+
+// スクロールで順番にフェードイン
+.js .js-reveal {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// マスクの内側から写真が現れる
+.js .js-mask > figure {
+  clip-path: inset(100% 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .js-reveal {
+    opacity: 1;
+    visibility: visible;
+  }
+  .js .js-mask > figure {
+    clip-path: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}

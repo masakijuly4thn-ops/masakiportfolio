@@ -1,0 +1,19 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+
+.c-inner {
+  max-width: 1024px;
+  width: 95%;
+  margin: auto;
+  position: relative;
+  @include m.mq(tab-l) {
+    width: 90%;
+  }
+  &.--900 {
+    max-width: 900px;
+  }
+  &.--1000 {
+    max-width: 1000px;
+  }
+}

@@ -1,0 +1,214 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as f;
+
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color 0.6s, box-shadow 0.6s, transform 0.6s m.$easeOutCubic;
+  &.js-active {
+    background-color: rgba(c.$bg, 0.88);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(c.$text, 0.06);
+  }
+  .is-navOpen & {
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+.l-header__inner {
+  position: relative;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 0 clamp(20px, 5.8vw, 84px);
+  transition: height 0.6s m.$easeOutCubic;
+  .js-active & {
+    height: 76px;
+  }
+  @include m.mq(tab) {
+    height: 72px;
+    .js-active & {
+      height: 64px;
+    }
+  }
+}
+.l-header__logo {
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: 0;
+  padding-top: 0.15em;
+  @include m.mq(tab) {
+    font-size: 3.4rem;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.l-header__nav {
+  margin-left: clamp(40px, 9vw, 130px);
+  @include m.mq(pc-s) {
+    display: none;
+  }
+}
+.l-header__navList {
+  display: flex;
+  gap: clamp(24px, 2.8vw, 40px);
+  a {
+    position: relative;
+    font-size: 1.3rem;
+    letter-spacing: 0.14em;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s m.$easeOutCubic;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+.l-header__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+}
+.l-header__contact {
+  font-size: 1.3rem;
+  letter-spacing: 0.14em;
+  // FV上（写真の暗い部分）では白文字
+  .l-header:not(.js-active) & {
+    color: c.$white;
+    text-shadow: 0 1px 10px rgba(#000, 0.35);
+  }
+  @include m.mq(tab) {
+    display: none;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+//ハンバーガー
+.l-headerNavButton {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: c.$dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s m.$easeOutCubic, background-color 0.4s;
+  @include m.mq(tab) {
+    width: 48px;
+    height: 48px;
+  }
+  &:hover {
+    transform: scale(1.06);
+  }
+  .lineIcon {
+    position: relative;
+    width: 18px;
+    height: 10px;
+  }
+  .line {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: c.$white;
+    transition: transform 0.5s m.$easeOutCubic;
+    &:nth-child(1) {
+      top: 0;
+      .is-navOpen & {
+        transform: translateY(4.5px) rotate(30deg);
+      }
+    }
+    &:nth-child(2) {
+      top: calc(50% - 0.5px);
+      .is-navOpen & {
+        transform: scaleX(0);
+      }
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      .is-navOpen & {
+        transform: translateY(-4.5px) rotate(-30deg);
+      }
+    }
+  }
+}
+
+//navメニュー
+.l-headerNav {
+  position: fixed;
+  inset: 0;
+  background-color: c.$bg;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 105;
+  transition: opacity 0.6s m.$easeOutCubic, visibility 0.6s;
+  .is-navOpen & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.l-headerNav__list {
+  display: grid;
+  gap: clamp(20px, 4vh, 36px);
+  text-align: center;
+}
+.l-headerNav__item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s, transform 0.8s m.$easeOutCubic;
+  .is-navOpen & {
+    opacity: 1;
+    transform: none;
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.1 + $i * 0.06}s;
+      }
+    }
+  }
+}
+.l-headerNav__link {
+  display: block;
+  font-family: f.$mincho;
+  font-size: 2.2rem;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  &:hover {
+    opacity: 0.55;
+  }
+}
+.l-headerNav__en {
+  display: block;
+  font-family: f.$base;
+  font-size: 1.1rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: c.$text-sub;
+  margin-bottom: 4px;
+}

@@ -1,0 +1,162 @@
+@charset "utf-8";
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+
+// 矢印アイコン（共通）
+@mixin arrow {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 7px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 7'%3E%3Cpath d='M0 3.5h13M10 .5l3 3-3 3' fill='none' stroke='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 7'%3E%3Cpath d='M0 3.5h13M10 .5l3 3-3 3' fill='none' stroke='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+  background: currentColor;
+}
+
+// ボタン（塗り）
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-width: 220px;
+  padding: 20px 28px;
+  background-color: c.$dark;
+  color: c.$white;
+  font-size: 1.4rem;
+  letter-spacing: 0.16em;
+  transition: background-color 0.5s, color 0.5s;
+  &::after {
+    @include arrow;
+    width: 22px;
+    transition: transform 0.5s m.$easeOutCubic;
+  }
+  &:hover {
+    background-color: c.$white;
+    color: c.$dark;
+    &::after {
+      transform: translateX(6px);
+    }
+  }
+}
+
+// テキスト + 線
+.c-linkLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(c.$text, 0.4);
+  font-size: 1.3rem;
+  letter-spacing: 0.16em;
+  &::after {
+    content: "";
+    width: 56px;
+    height: 1px;
+    background-color: currentColor;
+    transform-origin: left;
+    transition: transform 0.6s m.$easeOutCubic;
+  }
+  &:hover::after {
+    transform: scaleX(1.4);
+  }
+}
+
+// テキスト + 矢印
+.c-linkArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.2rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  &::after {
+    @include arrow;
+    transition: transform 0.5s m.$easeOutCubic;
+  }
+  &:hover::after {
+    transform: translateX(6px);
+  }
+}
+
+// 丸矢印ボタン
+.c-arrowCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: c.$dark;
+  transition: transform 0.5s m.$easeOutCubic, opacity 0.4s;
+  @include m.mq(tab) {
+    width: 48px;
+    height: 48px;
+  }
+  svg {
+    fill: none;
+    stroke: c.$white;
+    stroke-width: 1.4;
+  }
+  &.-prev svg {
+    transform: scaleX(-1);
+  }
+  &:hover {
+    transform: scale(1.08);
+  }
+  &[disabled] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+// 再生ボタン
+.c-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  color: c.$white;
+  font-size: 1.3rem;
+  letter-spacing: 0.16em;
+}
+.c-play__icon {
+  position: relative;
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: c.$white;
+  transition: transform 0.6s m.$easeOutCubic;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 7px 0 7px 11px;
+    border-color: transparent transparent transparent c.$dark;
+  }
+  // 波紋
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(c.$white, 0.7);
+    animation: playRipple 2.8s m.$easeOutCubic infinite;
+  }
+  .c-play:hover & {
+    transform: scale(1.08);
+  }
+}
+@keyframes playRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
