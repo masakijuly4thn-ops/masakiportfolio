@@ -1,57 +1,86 @@
 @charset "utf-8";
 @use "mixin" as m;
 @use "color" as c;
-@use "font" as f;
+
+$fontMincho: "Shippori Mincho", "Yu Mincho", "游明朝", YuMincho, "Hiragino Mincho ProN", "HGS明朝E", serif;
 
 * {
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   line-height: 1.6;
   box-sizing: border-box;
+  color: inherit;
   -webkit-appearance: none;
   @include m.mq(tab) {
     line-height: 1.65;
   }
 }
 .preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
   transition: none !important;
 }
 html {
   width: 100%;
   /* ルートのフォントサイズを10pxに設定 */
   font-size: 62.5%;
-  scroll-padding-top: 80px;
-  scroll-behavior: smooth;
   @include m.mq(tab-l) {
     font-size: 61.5%;
   }
   @include m.mq(tab) {
-    font-size: 54.6%;
+    font-size: 58%;
   }
 }
 
 body {
   margin: 0px;
-  overflow-x: clip;
-  /* ルートのフォントサイズを1.6em（16pxと同等のサイズ）に設定 */
+  overflow-x: hidden;
   font-size: 1.6rem;
-  font-family: f.$base;
-  color: c.$text;
-  background-color: c.$bg;
-  -webkit-font-smoothing: antialiased;
+  color: c.$textLight;
+  background-color: c.$dark;
+  font-family: $fontMincho;
   font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+  // ローディング中はスクロールさせない
+  &.is-loading {
+    overflow: hidden;
+  }
+  // 質感を出すための粒子ノイズ（全体にうっすら重ねる）
+  &::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 900;
+    animation: grain 1s steps(6) infinite;
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5%, 3%); }
+  40% { transform: translate(4%, -6%); }
+  60% { transform: translate(-3%, 8%); }
+  80% { transform: translate(7%, -2%); }
+  100% { transform: translate(0, 0); }
 }
 
 select,
 option,
-button,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
 input,
-textarea {
-  font-family: inherit;
-  color: inherit;
+textarea,
+button {
+  font-family: $fontMincho;
 }
 
 a {
@@ -89,10 +118,8 @@ input[type="submit"] {
   background-color: transparent;
   border: none;
   border-radius: 0;
-}
-button {
-  cursor: pointer;
   padding: 0;
+  cursor: pointer;
 }
 
 select::-ms-expand {
@@ -101,17 +128,15 @@ select::-ms-expand {
 
 img {
   display: block;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 section {
   position: relative;
 }
 
-:focus-visible,
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid c.$text;
-  outline-offset: 3px;
+::selection {
+  background-color: rgba(c.$gold, 0.5);
+  color: c.$white;
 }

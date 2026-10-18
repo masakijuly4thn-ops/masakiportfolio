@@ -2,5 +2,5 @@
 @use "../foundation/color" as c;
 
 .l-main {
-  overflow: hidden;
+  overflow: clip;
 }
