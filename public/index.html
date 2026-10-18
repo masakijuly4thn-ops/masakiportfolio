@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabito（タビト）｜旅で、日常を少し、好きになる。国内・海外の旅先さがし</title>
+  <meta name="description" content="Tabito（タビト）は、イタリア・京都・北海道・沖縄など国内外の人気の旅先をご紹介し、旅の計画から現地での体験までをサポートする旅行サービスです。まだ見たことのない景色と、まだ知らない食べものに出会う旅を。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://example.com/">
+  <meta name="theme-color" content="#f4f1ec">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tabito">
+  <meta property="og:title" content="Tabito（タビト）｜旅で、日常を少し、好きになる。国内・海外の旅先さがし">
+  <meta property="og:description" content="Tabito（タビト）は、イタリア・京都・北海道・沖縄など国内外の人気の旅先をご紹介し、旅の計画から現地での体験までをサポートする旅行サービスです。まだ見たことのない景色と、まだ知らない食べものに出会う旅を。">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/assets/images/top/fv.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSが有効な場合のみアニメーション用の初期状態を適用 -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One&family=Mrs+Saint+Delafield&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap">
+  <link rel="preload" as="image" href="./assets/images/top/fv.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="./assets/css/vendor/splide-core.min.css">
+  <link rel="stylesheet" href="./assets/css/style.min.css">
+  <link rel="stylesheet" href="./assets/css/pages/top/index.min.css">
+
+  <!-- ライブラリ（GSAP / Splide）→ 共通JS → ページJS の順に実行 -->
+  <script src="./assets/js/vendor/gsap.min.js" defer></script>
+  <script src="./assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="./assets/js/vendor/splide.min.js" defer></script>
+  <script src="./assets/js/scripts.min.js" defer></script>
+  <script src="./assets/js/pages/top/index.min.js" defer></script>
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "TravelAgency",
+            "@id": "https://example.com/#organization",
+            "name": "Tabito",
+            "alternateName": "タビト",
+            "url": "https://example.com/",
+            "description": "Tabito（タビト）は、イタリア・京都・北海道・沖縄など国内外の人気の旅先をご紹介し、旅の計画から現地での体験までをサポートする旅行サービスです。まだ見たことのない景色と、まだ知らない食べものに出会う旅を。",
+            "sameAs": [
+                "https://www.instagram.com/",
+                "https://www.youtube.com/"
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://example.com/#website",
+            "url": "https://example.com/",
+            "name": "Tabito",
+            "inLanguage": "ja",
+            "publisher": {
+                "@id": "https://example.com/#organization"
+            }
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://example.com/#webpage",
+            "url": "https://example.com/",
+            "name": "Tabito（タビト）｜旅で、日常を少し、好きになる。国内・海外の旅先さがし",
+            "description": "Tabito（タビト）は、イタリア・京都・北海道・沖縄など国内外の人気の旅先をご紹介し、旅の計画から現地での体験までをサポートする旅行サービスです。まだ見たことのない景色と、まだ知らない食べものに出会う旅を。",
+            "inLanguage": "ja",
+            "isPartOf": {
+                "@id": "https://example.com/#website"
+            },
+            "about": {
+                "@id": "https://example.com/#organization"
+            },
+            "primaryImageOfPage": "https://example.com/assets/images/top/fv.jpg"
+        },
+        {
+            "@type": "ItemList",
+            "name": "人気の旅先",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "TouristDestination",
+                        "name": "イタリア",
+                        "description": "街を歩くだけで、映画の世界。",
+                        "url": "https://example.com/destinations/italy/",
+                        "image": "https://example.com/assets/images/top/dest-italy.jpg"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "TouristDestination",
+                        "name": "京都",
+                        "description": "四季が彩る、特別な時間。",
+                        "url": "https://example.com/destinations/kyoto/",
+                        "image": "https://example.com/assets/images/top/dest-kyoto.jpg"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "TouristDestination",
+                        "name": "北海道",
+                        "description": "広がる大地と、食のしあわせ。",
+                        "url": "https://example.com/destinations/hokkaido/",
+                        "image": "https://example.com/assets/images/top/dest-hokkaido.jpg"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                        "@type": "TouristDestination",
+                        "name": "沖縄",
+                        "description": "青い海と、ゆるやかな時間。",
+                        "url": "https://example.com/destinations/okinawa/",
+                        "image": "https://example.com/assets/images/top/dest-okinawa.jpg"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "item": {
+                        "@type": "TouristDestination",
+                        "name": "スイス",
+                        "description": "湖と山がつくる、澄んだ景色。",
+                        "url": "https://example.com/destinations/switzerland/",
+                        "image": "https://example.com/assets/images/top/gallery04.jpg"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "item": {
+                        "@type": "TouristDestination",
+                        "name": "南フランス",
+                        "description": "石畳の路地に、花がこぼれる。",
+                        "url": "https://example.com/destinations/south-france/",
+                        "image": "https://example.com/assets/images/top/gallery03.jpg"
+                    }
+                }
+            ]
+        }
+    ]
+}  </script>
+</head>
+
+<body>
+  <a class="u-skipLink" href="#main">本文へスキップ</a>
+  <header class="l-header" id="js-header">
+    <div class="l-header__inner">
+      <a href="./" class="l-header__logo c-fontScript" aria-label="Tabito トップページ">Tabito</a>
+      <nav class="l-header__nav" aria-label="グローバルナビゲーション">
+        <ul class="l-header__navList">
+          <li><a href="#destinations">旅先をさがす</a></li>
+          <li><a href="#experience">特集</a></li>
+          <li><a href="#why">私たちについて</a></li>
+          <li><a href="#voice">お客様の声</a></li>
+        </ul>
+      </nav>
+      <div class="l-header__right">
+        <button class="l-headerNavButton" type="button" id="js-hamburgerButton" aria-controls="js-headerNav" aria-expanded="false" aria-label="メニューを開く">
+          <span class="lineIcon" aria-hidden="true">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </span>
+        </button>
+        <a href="#cta" class="l-header__contact">旅の相談をする</a>
+      </div>
+    </div>
+    <nav class="l-headerNav" id="js-headerNav" aria-label="メニュー">
+      <ul class="l-headerNav__list">
+        <li class="l-headerNav__item">
+          <a href="#destinations" class="l-headerNav__link"><span class="l-headerNav__en">Destinations</span>旅先をさがす</a>
+        </li>
+        <li class="l-headerNav__item">
+          <a href="#experience" class="l-headerNav__link"><span class="l-headerNav__en">Experience</span>特集</a>
+        </li>
+        <li class="l-headerNav__item">
+          <a href="#why" class="l-headerNav__link"><span class="l-headerNav__en">About</span>私たちについて</a>
+        </li>
+        <li class="l-headerNav__item">
+          <a href="#gallery" class="l-headerNav__link"><span class="l-headerNav__en">Gallery</span>旅のひとコマ</a>
+        </li>
+        <li class="l-headerNav__item">
+          <a href="#voice" class="l-headerNav__link"><span class="l-headerNav__en">Voice</span>お客様の声</a>
+        </li>
+        <li class="l-headerNav__item">
+          <a href="#cta" class="l-headerNav__link"><span class="l-headerNav__en">Contact</span>旅の相談をする</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+<main class="l-main" id="main">
+
+  <!-- ============ FV ============ -->
+  <section class="p-fv" id="js-mv" aria-labelledby="fv-title">
+    <div class="p-fv__bg">
+      <img src="./assets/images/top/fv.jpg" alt="夕日に染まるイタリア・ポジターノの海と、断崖に建ち並ぶ街並み" width="2000" height="1500" fetchpriority="high" decoding="async">
+    </div>
+    <div class="p-fv__content">
+      <h1 class="p-fv__title" id="fv-title">
+        <span class="p-fv__line"><span>旅で、</span></span>
+        <span class="p-fv__line"><span>日常を少し、</span></span>
+        <span class="p-fv__line"><span>好きになる。</span></span>
+      </h1>
+      <p class="p-fv__lead">まだ見たことのない景色、まだ知らない食べもの。<br>旅は、いつもの毎日をちょっとだけ特別にしてくれる。</p>
+      <a href="#destinations" class="c-linkLine p-fv__link">旅をさがす</a>
+    </div>
+    <div class="p-fv__scroll" aria-hidden="true">
+      <span class="p-fv__scrollText">Scroll</span>
+      <span class="p-fv__scrollLine"></span>
+    </div>
+  </section>
+
+  <!-- ============ 人気の旅先 ============ -->
+  <section class="p-dest" id="destinations" aria-labelledby="dest-title">
+    <div class="p-dest__side">
+      <img src="./assets/images/top/destinations-side.jpg" alt="ツタに覆われた建物が並ぶヨーロッパの細い路地" width="1000" height="1508" loading="lazy" decoding="async">
+    </div>
+    <div class="p-dest__body">
+      <div class="p-dest__head">
+        <hgroup class="c-secTitle js-reveal">
+          <p class="c-secTitle__en" lang="en">Destinations</p>
+          <h2 class="c-secTitle__ja" id="dest-title">人気の旅先</h2>
+        </hgroup>
+        <a href="#destinations" class="c-linkArrow js-reveal">すべての旅先を見る</a>
+      </div>
+      <div class="splide p-dest__slider" id="js-destSlider" aria-label="人気の旅先一覧">
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev c-arrowCircle -prev" type="button" aria-label="前の旅先へ">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12h15m-5-5 5 5-5 5" /></svg>
+          </button>
+          <button class="splide__arrow splide__arrow--next c-arrowCircle" type="button" aria-label="次の旅先へ">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12h15m-5-5 5 5-5 5" /></svg>
+          </button>
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list">
+                          <li class="splide__slide">
+                <article class="p-destCard">
+                  <a href="./destinations/italy/" class="p-destCard__link">
+                    <figure class="p-destCard__img">
+                      <img src="./assets/images/top/dest-italy.jpg" alt="岩山の斜面に色とりどりの家々が建ち並ぶイタリアの海辺の街" width="900" height="960" loading="lazy" decoding="async">
+                    </figure>
+                    <h3 class="p-destCard__name">イタリア</h3>
+                    <p class="p-destCard__text">街を歩くだけで、映画の世界。</p>
+                  </a>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-destCard">
+                  <a href="./destinations/kyoto/" class="p-destCard__link">
+                    <figure class="p-destCard__img">
+                      <img src="./assets/images/top/dest-kyoto.jpg" alt="夕暮れの石畳の路地の先に建つ京都・八坂の塔" width="900" height="960" loading="lazy" decoding="async">
+                    </figure>
+                    <h3 class="p-destCard__name">京都</h3>
+                    <p class="p-destCard__text">四季が彩る、特別な時間。</p>
+                  </a>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-destCard">
+                  <a href="./destinations/hokkaido/" class="p-destCard__link">
+                    <figure class="p-destCard__img">
+                      <img src="./assets/images/top/dest-hokkaido.jpg" alt="一面に咲く北海道のラベンダー畑" width="900" height="960" loading="lazy" decoding="async">
+                    </figure>
+                    <h3 class="p-destCard__name">北海道</h3>
+                    <p class="p-destCard__text">広がる大地と、食のしあわせ。</p>
+                  </a>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-destCard">
+                  <a href="./destinations/okinawa/" class="p-destCard__link">
+                    <figure class="p-destCard__img">
+                      <img src="./assets/images/top/dest-okinawa.jpg" alt="透明度の高いエメラルドグリーンの沖縄の海と緑の島" width="900" height="960" loading="lazy" decoding="async">
+                    </figure>
+                    <h3 class="p-destCard__name">沖縄</h3>
+                    <p class="p-destCard__text">青い海と、ゆるやかな時間。</p>
+                  </a>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-destCard">
+                  <a href="./destinations/switzerland/" class="p-destCard__link">
+                    <figure class="p-destCard__img">
+                      <img src="./assets/images/top/gallery04.jpg" alt="山々に囲まれたスイスの湖に浮かぶ小舟" width="1000" height="834" loading="lazy" decoding="async">
+                    </figure>
+                    <h3 class="p-destCard__name">スイス</h3>
+                    <p class="p-destCard__text">湖と山がつくる、澄んだ景色。</p>
+                  </a>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-destCard">
+                  <a href="./destinations/south-france/" class="p-destCard__link">
+                    <figure class="p-destCard__img">
+                      <img src="./assets/images/top/gallery03.jpg" alt="花の鉢植えが並ぶ石造りの細い路地" width="1000" height="834" loading="lazy" decoding="async">
+                    </figure>
+                    <h3 class="p-destCard__name">南フランス</h3>
+                    <p class="p-destCard__text">石畳の路地に、花がこぼれる。</p>
+                  </a>
+                </article>
+              </li>
+                      </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 旅がくれる3つのこと ============ -->
+  <section class="p-why" id="why" aria-labelledby="why-title">
+    <div class="p-why__inner">
+      <div class="p-why__head">
+        <hgroup class="c-secTitle">
+          <p class="c-secTitle__en js-reveal" lang="en">Why Travel</p>
+          <h2 class="c-secTitle__ja js-reveal" id="why-title" data-delay="0.15">旅がくれる<br>3つのこと</h2>
+        </hgroup>
+        <p class="p-why__lead js-reveal" data-delay="0.3">旅は、ただの観光じゃない。<br>知らない景色や人との出会いが、<br>いつもの毎日に新しい視点をくれます。</p>
+      </div>
+      <ol class="p-why__list">
+        <li class="p-why__item">
+          <span class="p-why__num" aria-hidden="true">01</span>
+          <div class="p-why__body">
+            <h3 class="p-why__title">新しい価値観に出会える</h3>
+            <p class="p-why__text">まだ知らない文化や暮らしに触れることで、世界の見え方が少し変わります。</p>
+          </div>
+        </li>
+        <li class="p-why__item">
+          <span class="p-why__num" aria-hidden="true">02</span>
+          <div class="p-why__body">
+            <h3 class="p-why__title">心がリフレッシュする</h3>
+            <p class="p-why__text">日常から離れて、自然や街の空気を感じることで、気持ちが軽くなります。</p>
+          </div>
+        </li>
+        <li class="p-why__item">
+          <span class="p-why__num" aria-hidden="true">03</span>
+          <div class="p-why__body">
+            <h3 class="p-why__title">自分らしさを見つけられる</h3>
+            <p class="p-why__text">さまざまな体験を通して、新しい自分に出会えるきっかけになります。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <figure class="p-why__img js-reveal -fade">
+      <img src="./assets/images/top/why.jpg" alt="窓から差し込む光と影が落ちる白いテーブルとティーカップ" width="1200" height="1380" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="p-exp" id="experience" aria-labelledby="exp-title">
+    <div class="p-exp__bg" data-parallax="0.12">
+      <img src="./assets/images/top/experience.jpg" alt="麦わら帽子をかぶり、夕暮れの海を眺める女性" width="2400" height="1266" loading="lazy" decoding="async">
+    </div>
+    <div class="p-exp__content">
+      <p class="c-secTitle__en -white js-reveal" lang="en">Experience</p>
+      <h2 class="p-exp__title js-reveal" id="exp-title" data-delay="0.15">旅の体験が、<br>人生を豊かにする。</h2>
+      <p class="p-exp__text js-reveal" data-delay="0.3">美しい景色、現地の人との出会い、美味しい食事。<br>すべてが、かけがえのない思い出になります。</p>
+      <button class="c-play js-reveal" type="button" id="js-movieOpen" aria-haspopup="dialog" aria-controls="js-movieModal" data-delay="0.45">
+        <span class="c-play__icon" aria-hidden="true"></span>
+        <span class="c-play__text">動画で見る</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="p-gallery" id="gallery" aria-labelledby="gallery-title">
+    <div class="p-gallery__head">
+      <hgroup class="c-secTitle js-reveal">
+        <p class="c-secTitle__en" lang="en">Gallery</p>
+        <h2 class="c-secTitle__ja" id="gallery-title">旅のひとコマ</h2>
+      </hgroup>
+      <p class="p-gallery__lead js-reveal" data-delay="0.15">何気ない瞬間が、特別な思い出に変わる。<br>旅先で出会った、心に残る風景たち。</p>
+      <a href="#gallery" class="c-linkArrow js-reveal" data-delay="0.3">ギャラリーを見る</a>
+    </div>
+    <ul class="p-gallery__list">
+              <li class="p-gallery__item js-mask">
+          <figure class="p-gallery__img">
+            <img src="./assets/images/top/gallery01.jpg" alt="カラフルな家並みと教会のドームの先に広がるポジターノの海" width="1000" height="834" loading="lazy" decoding="async">
+          </figure>
+        </li>
+              <li class="p-gallery__item js-mask">
+          <figure class="p-gallery__img">
+            <img src="./assets/images/top/gallery02.jpg" alt="焼き菓子と花が並ぶ朝食のテーブル" width="1000" height="834" loading="lazy" decoding="async">
+          </figure>
+        </li>
+              <li class="p-gallery__item js-mask">
+          <figure class="p-gallery__img">
+            <img src="./assets/images/top/gallery03.jpg" alt="花の鉢植えが並ぶ石造りの細い路地" width="1000" height="834" loading="lazy" decoding="async">
+          </figure>
+        </li>
+              <li class="p-gallery__item js-mask">
+          <figure class="p-gallery__img">
+            <img src="./assets/images/top/gallery04.jpg" alt="山々を映す静かな湖に浮かぶ小舟" width="1000" height="834" loading="lazy" decoding="async">
+          </figure>
+        </li>
+          </ul>
+  </section>
+
+  <!-- ============ お客様の声 ============ -->
+  <section class="p-voice" id="voice" aria-labelledby="voice-title">
+    <span class="p-voice__deco c-fontScript" aria-hidden="true">Voice</span>
+    <div class="p-voice__inner">
+      <div class="p-voice__head">
+        <hgroup class="c-secTitle js-reveal">
+          <p class="c-secTitle__en" lang="en">Voice</p>
+          <h2 class="c-secTitle__ja" id="voice-title">お客様の声</h2>
+        </hgroup>
+        <p class="p-voice__lead js-reveal" data-delay="0.15">実際に旅をされた方から、<br>たくさんの嬉しい声をいただいています。</p>
+        <div class="p-voice__arrows js-reveal" data-delay="0.3">
+          <button class="p-voice__arrow" type="button" id="js-voicePrev" aria-label="前のお客様の声へ">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 12H5m5-5-5 5 5 5" /></svg>
+          </button>
+          <button class="p-voice__arrow" type="button" id="js-voiceNext" aria-label="次のお客様の声へ">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 12h15m-5-5 5 5-5 5" /></svg>
+          </button>
+        </div>
+      </div>
+      <div class="splide p-voice__slider js-reveal" id="js-voiceSlider" aria-label="お客様の声一覧" data-delay="0.2">
+        <div class="splide__track">
+          <ul class="splide__list">
+                          <li class="splide__slide">
+                <article class="p-voiceCard">
+                  <img class="p-voiceCard__avatar" src="./assets/images/top/voice01.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                  <h3 class="p-voiceCard__title">「一生の思い出になりました。」</h3>
+                  <blockquote class="p-voiceCard__text">
+                    <p>初めてのヨーロッパ旅行でしたが、安心して楽しめました。また利用したいです！</p>
+                  </blockquote>
+                  <p class="p-voiceCard__meta">20代・女性</p>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-voiceCard">
+                  <img class="p-voiceCard__avatar" src="./assets/images/top/voice02.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                  <h3 class="p-voiceCard__title">「想像以上の体験ができた。」</h3>
+                  <blockquote class="p-voiceCard__text">
+                    <p>現地の文化や食事を深く知ることができて、本当に充実した旅になりました。</p>
+                  </blockquote>
+                  <p class="p-voiceCard__meta">30代・男性</p>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-voiceCard">
+                  <img class="p-voiceCard__avatar" src="./assets/images/top/voice03.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                  <h3 class="p-voiceCard__title">「丁寧なサポートで安心。」</h3>
+                  <blockquote class="p-voiceCard__text">
+                    <p>出発前から帰国まで、丁寧に対応していただき、安心して旅を楽しめました。</p>
+                  </blockquote>
+                  <p class="p-voiceCard__meta">20代・女性</p>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-voiceCard">
+                  <img class="p-voiceCard__avatar" src="./assets/images/top/voice01.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                  <h3 class="p-voiceCard__title">「家族みんなの宝物に。」</h3>
+                  <blockquote class="p-voiceCard__text">
+                    <p>子ども連れでも無理のない旅程を提案してもらえて、家族全員が笑顔で過ごせました。</p>
+                  </blockquote>
+                  <p class="p-voiceCard__meta">40代・女性</p>
+                </article>
+              </li>
+                          <li class="splide__slide">
+                <article class="p-voiceCard">
+                  <img class="p-voiceCard__avatar" src="./assets/images/top/voice03.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                  <h3 class="p-voiceCard__title">「一人旅の不安が消えました。」</h3>
+                  <blockquote class="p-voiceCard__text">
+                    <p>現地での過ごし方まで相談にのってもらえたので、初めての一人旅でも心強かったです。</p>
+                  </blockquote>
+                  <p class="p-voiceCard__meta">30代・女性</p>
+                </article>
+              </li>
+                      </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="p-cta" id="cta" aria-labelledby="cta-title">
+    <div class="p-cta__bg">
+      <img src="./assets/images/top/cta.jpg" alt="夕暮れの海辺で明かりが灯り始めたポジターノの街並み" width="2000" height="1336" loading="lazy" decoding="async">
+    </div>
+    <div class="p-cta__content">
+      <h2 class="p-cta__title" id="cta-title">
+        <span class="p-cta__script c-fontScript js-reveal" lang="en">Let's Travel</span>
+        <span class="p-cta__ja js-reveal" data-delay="0.2">さあ、次はどこへ行こう。</span>
+      </h2>
+      <a href="#destinations" class="c-button p-cta__button js-reveal" data-delay="0.35">旅をさがす</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- 動画モーダル -->
+<dialog class="c-modal" id="js-movieModal" aria-label="旅の体験ムービー">
+  <div class="c-modal__inner">
+    <video class="c-modal__video" controls playsinline preload="none" poster="./assets/images/top/experience.jpg">
+      <source src="./assets/video/experience.mp4" type="video/mp4">
+    </video>
+    <button class="c-modal__close" type="button" id="js-movieClose" aria-label="動画を閉じる"></button>
+  </div>
+</dialog>
+
+  <footer class="l-footer">
+    <div class="l-footer__inner">
+      <a href="./" class="l-footer__logo c-fontScript" aria-label="Tabito トップページ">Tabito</a>
+      <nav class="l-footer__nav" aria-label="フッターナビゲーション">
+        <ul class="l-footer__navList">
+          <li><a href="#destinations">旅先をさがす</a></li>
+          <li><a href="#experience">特集</a></li>
+          <li><a href="#why">私たちについて</a></li>
+          <li><a href="#voice">お客様の声</a></li>
+        </ul>
+      </nav>
+      <ul class="l-footer__sns">
+        <li>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21.4 8.2c-.1-1.5-.4-2.8-1.5-3.9S17.5 2.8 16 2.7c-1.6-.1-6.3-.1-7.9 0-1.5.1-2.8.4-3.9 1.5S2.7 6.6 2.6 8.1c-.1 1.6-.1 6.3 0 7.9.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.6.1 6.3.1 7.9 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.6.1-6.2.1-7.8Zm-2 9.5a3.2 3.2 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.6.4s-4.4.1-5.6-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.6s-.1-4.4.4-5.6a3.2 3.2 0 0 1 1.8-1.8c1.3-.5 4.3-.4 5.6-.4s4.4-.1 5.6.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.6s.1 4.4-.4 5.6Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8ZM9.7 15V9l5.8 3-5.8 3Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:info@example.com" aria-label="メールでお問い合わせ">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.6 7H4v.3l8 5.6 8-5.6V7h-.6L12 12.2Z"/></svg>
+          </a>
+        </li>
+      </ul>
+      <p class="l-footer__copy"><small>&copy; 2026 Tabito. All rights reserved.</small></p>
+    </div>
+  </footer>
+</body>
+
+</html>
